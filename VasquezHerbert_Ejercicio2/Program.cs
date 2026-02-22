@@ -13,3 +13,11 @@ Console.WriteLine("Autorizacion Escrita S/N");
 string autorizacion  = Console.ReadLine();
 Console.WriteLine("Trae USB S/N");
 string usb = Console.ReadLine();
+if (hora > 0 && dia > 0 && dia <8 && carnet == "S" || carnet == "N" && autorizacion == "S" || autorizacion == "N")
+{
+
+}
+else
+{
+    Console.WriteLine("Datos erroneos");
+}
