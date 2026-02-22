@@ -13,11 +13,36 @@ Console.WriteLine("Autorizacion Escrita S/N");
 string autorizacion  = Console.ReadLine();
 Console.WriteLine("Trae USB S/N");
 string usb = Console.ReadLine();
+Console.WriteLine("Usted viene acompañado? S/N");
+string Respuesta = Console.ReadLine();
+
 if (hora > 0 && dia > 0 && dia <8 && carnet == "S" || carnet == "N" && autorizacion == "S" || autorizacion == "N")
 {
     switch (opcion)
     {
         case 1://Estudiante
+            if (dia >= 1 && dia <= 5 && hora >=7 && hora <= 18) {
+                if (usb == "S")
+                {
+                    if (Respuesta == "S")
+                    {
+                        Console.WriteLine("Bienvenido");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Se Necesita acompañante");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Bienvenido");
+                }
+                
+            }
+            else
+            {
+                Console.WriteLine("Acceso denegado");
+            }
             break;
         case 2://Docente
             break;
@@ -26,6 +51,7 @@ if (hora > 0 && dia > 0 && dia <8 && carnet == "S" || carnet == "N" && autorizac
         case 4://Visitante
             break;
         default:
+            Console.WriteLine("Opcion incorrecta");
             break;
     }
 }
