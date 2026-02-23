@@ -21,7 +21,8 @@ if (hora > 0 && dia > 0 && dia <8 && carnet == "S" || carnet == "N" && autorizac
     switch (opcion)
     {
         case 1://Estudiante
-            if (dia >= 1 && dia <= 5 && hora >=7 && hora <= 18) {
+            // El estudiante solo puede entrar en horario escolar
+            if (dia >= 1 && dia <= 5 && hora >=7 && hora <= 18 && carnet == "S") {
                 if (usb == "S")
                 {
                     if (Respuesta == "S")
@@ -45,10 +46,61 @@ if (hora > 0 && dia > 0 && dia <8 && carnet == "S" || carnet == "N" && autorizac
             }
             break;
         case 2://Docente
+               // El docente solo puede entrar en horario escolar
+            if (dia >= 1 && dia <= 5 && hora >= 7 && hora <= 18)
+            {
+                if (usb == "S")
+                {
+                    if (Respuesta == "S")
+                    {
+                        Console.WriteLine("Bienvenido");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Se Necesita acompañante");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Bienvenido");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Acceso denegado");
+            }
             break;
         case 3://Tecnico IT
+               // El tecnico ya tiene mayor libertad y puede entrar en todos los horarios
+            if (dia >= 1 && dia <= 7 && hora >= 6 && hora <= 23)
+            {
+                Console.WriteLine("Bienvenido");
+
+            }
+            else
+            {
+                Console.WriteLine("Acceso denegado");
+            }
             break;
         case 4://Visitante
+          //El visitante solo puede entrar en los dias escolores y el horario de 10am a 5pm
+            if (dia >= 1 && dia <= 5 && hora >= 10 && hora <= 5)
+            {
+                if (autorizacion == "S" && Respuesta == "S")
+                {
+                    Console.WriteLine("Usted puede ingresar");
+                }
+                else
+                {
+                    Console.WriteLine("usted no puede ingresar");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Acceso denegado");
+            }
             break;
         default:
             Console.WriteLine("Opcion incorrecta");
